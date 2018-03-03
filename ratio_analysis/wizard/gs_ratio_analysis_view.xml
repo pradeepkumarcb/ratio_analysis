@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_ratio_analysis_wizard_form" model="ir.ui.view">
+        <field name="name">ratio.analysis.wizard.form</field>
+        <field name="model">ratio.analysis</field>
+        <field name="arch" type="xml">
+            <form string="">
+                    <group colspan="4" col="2">
+                        <field name="from_date" required ="1"/>
+                        <field name="to_date" required="1"/>
+                         <field name="enable_cmp"/>
+                    </group>
+                    <notebook tabpos="up" colspan="4">
+                    <page string="Comparison" name="comparison" attrs="{'invisible': [('enable_cmp','=',False)]}">
+                        <group string="Dates">
+                            <field name="cmp_date_from" />
+                            <field name="cmp_date_to" />
+                        </group>
+                    </page>
+                </notebook>
+                    <footer>
+                        <button string="Get Report" name="export_xls" 
+                                type="object" class="oe_highlight" context="{'xls_export':1}"/>
+                    </footer>
+            </form>
+        </field>
+    </record>
+
+<record id="action_menu_ratio_analysis" model="ir.actions.act_window">
+        <field name="name">Ratio Analysis</field>
+        <field name="res_model">ratio.analysis</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+<menuitem id="menu_ratio_analysis" name="Ratio Analysis" parent="account.menu_finance_legal_statement" action="action_menu_ratio_analysis"/>
+</odoo>

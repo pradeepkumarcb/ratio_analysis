@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+    <report
+            id="ratio_analysis_report_xlsx"
+            model="ratio.analysis"
+            string=" "
+            report_type="xlsx"
+            name="ratio_analysis.ratio_analysis_report_xls.xlsx"
+            file="ratio_analysis.ratio_analysis_report_xls.xlsx"
+            attachment_use="False"
+        />
+    </data>
+</odoo>
